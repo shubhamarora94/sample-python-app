@@ -8,14 +8,14 @@ on:
 
 env:
 # ACR data
-  ACR_ADDR: testregistry71.azurecr.io
-  ACR_NAME: testregistry71
-  ACR_ADMIN_USER: testregistry71
+  ACR_ADDR: testregistry91.azurecr.io
+  ACR_NAME: testregistry91
+  ACR_ADMIN_USER: testregistry91
   DOCKER_CMD: "sudo docker"
   IMAGE: python
   # needed to access AKS
-  CLUSTER_NAME: k8-cluster
-  CLUSTER_RG: k8-cluster_group
+  CLUSTER_NAME: k8-cluster2
+  CLUSTER_RG: k8-cluster_group2
   NAMESPACE: default
   # keyvault parameters
   KEYVAULTNAME: testKVtomcat2
