@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image: 
-  repository: testregistry71.azurecr.io/frontend
+  repository: testregistry71.azurecr.io/python
   # Regarding HELM cache
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
@@ -13,8 +13,8 @@ image:
 
 imagePullSecrets: 
        - name: testregistry71.azurecr.io-pull-secret
-nameOverride: "frontend"
-fullnameOverride: "frontend"
+nameOverride: "python"
+fullnameOverride: "python"
 
 serviceAccount:
   # Specifies whether a service account should be created
