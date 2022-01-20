@@ -1,0 +1,108 @@
+# Default values for test.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image: 
+  repository: testregistry71.azurecr.io/frontend
+  # Regarding HELM cache
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: latest
+
+imagePullSecrets: 
+       - name: testregistry7.azurecr.io-pull-secret
+nameOverride: "frontend"
+fullnameOverride: "frontend"
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  port: 5001
+  type: LoadBalancer
+
+ingress:
+  enabled: true
+  className: ""
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: spring-frontend-rest.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# used to activate the right spring profile
+environment: prototype
+
+# Envronment Variables for Backend
+env:
+  - name: SPRING_PROFILES_ACTIVE
+    value: prototype
+
+
+namespace: default 
+#backendUrl: http://spring-backend-rest:5432
+
+config:
+  key: pgdbadmin
+  enableKeyVault: true
+  replicas: 1
+  port: 5001
+  keyVault:
+    userAssignedIdentityID: VALUE_TO_BE_OVERRIDDEN
+    resourceGroup: VALUE_TO_BE_OVERRIDDEN
+    keyVaultName: VALUE_TO_BE_OVERRIDDEN
+    tenantId: VALUE_TO_BE_OVERRIDDEN
+
