@@ -36,11 +36,4 @@ spec:
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
-              protocol: TCP          
-          env:
-            {{- range $.Values.env }}
-            - name: {{ .name }}
-              value: {{ .value }}
-            {{- end }}
-            - name: BACKEND_URL
-              value: "{{ .Values.backendUrl }}"
+              protocol: TCP
