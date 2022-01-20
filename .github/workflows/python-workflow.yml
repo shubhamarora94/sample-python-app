@@ -15,7 +15,7 @@ env:
   IMAGE: python
   # needed to access AKS
   CLUSTER_NAME: k8-cluster
-  CLUSTER_RG: k8-cluster
+  CLUSTER_RG: k8-cluster_group
   NAMESPACE: default
   # keyvault parameters
   KEYVAULTNAME: testKVtomcat2
