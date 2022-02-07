@@ -1,4 +1,4 @@
-name: Build and Deploy Python
+name: Build and Deploy PythonBuilder
 
 on:
   push:
