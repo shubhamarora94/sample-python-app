@@ -37,7 +37,7 @@ jobs:
       # build image
       - name: Run buildpack python
         run: |
-          pack build ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE }}:${{ github.sha }} --buildpack 'gcr.io/paketo-buildpacks/python' --builder cnbs/sample-builder:alpine --path ./src/
+          pack build ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE }}:${{ github.sha }} --buildpack 'gcr.io/paketo-buildpacks/python' --builder paketobuildpacks/builder:full --path ./src/
       - name: Login to ACR
         run: docker login -u ${{ env.ACR_ADMIN_USER }} -p ${{ secrets.ACR_PASSWORD }} ${{ env.ACR_ADDR }}
 
