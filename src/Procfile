@@ -1,1 +1,1 @@
-web: chmod 775 ./install-flyway.sh && ./install-flyway.sh && python ./app.py
+web: chmod 775 ./install-flyway.sh && ./install-flyway.sh && cp -R *.sql flyway-5.0.7/sql/ && python ./app.py
