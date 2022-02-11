@@ -41,7 +41,7 @@ jobs:
       
       - name: login to acr using helm
         env:
-         AZURE_CREDENTIALS: ${{ secrets.TECCSE_AZURE_CREDENTIALS_NONPROD }}
+         AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS_NONPROD }}
          HELM_EXPERIMENTAL_OCI: 1
         run: |
            SP_APPID=$(echo $AZURE_CREDENTIALS | jq -e -r 'select(.clientId != null) | .clientId')
