@@ -3,14 +3,14 @@ name: Build and Deploy Python-sp
 on:
   push:
     paths:
-      - "./**"
+      #- "./**"
   workflow_dispatch:
 
 env:
 # ACR data
-  ACR_ADDR: testregistry91.azurecr.io
-  ACR_NAME: testregistry91
-  ACR_ADMIN_USER: testregistry91
+  ACR_ADDR: testregistry9.azurecr.io
+  ACR_NAME: testregistry9
+  ACR_ADMIN_USER: testregistry9
   DOCKER_CMD: "sudo docker"
   IMAGE: python
   # needed to access AKS
