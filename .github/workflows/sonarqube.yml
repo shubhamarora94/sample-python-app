@@ -21,8 +21,8 @@ jobs:
       with:
         projectBaseDir: src/
         args: >
-          -Dsonar.python.coverage.reportPaths=coverage.xml
-          -Dsonar.tests=tests/
+         # -Dsonar.python.coverage.reportPaths=coverage.xml
+         # -Dsonar.tests=tests/
           -Dsonar.verbose=true
           -Dsonar.projectKey=python
       env:
