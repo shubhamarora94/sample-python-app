@@ -16,11 +16,19 @@ jobs:
       with:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
+    - name: Login to ACR
+      run: |
+        pip install coverage
+        coverage erase
+        coverage run --branch --source=src/ 
+        coverage xml -i
+        pytest --junitxml=pytest-report.xml
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
       with:
         projectBaseDir: src/
         args: >
+          -Dsonar.python.coverage.reportPaths=coverage.xml
           -Dsonar.verbose=true
           -Dsonar.projectKey=python
       env:
