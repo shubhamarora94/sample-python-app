@@ -28,6 +28,7 @@ jobs:
       with:
         projectBaseDir: src/
         args: >
+          -Dsonar.python.version=3.8
           -Dsonar.python.coverage.reportPaths=coverage.xml
           -Dsonar.verbose=true
           -Dsonar.projectKey=python
