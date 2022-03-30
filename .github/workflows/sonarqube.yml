@@ -18,11 +18,11 @@ jobs:
         fetch-depth: 0
     - name: Login to ACR
       run: |
-        pip install coverage
+        pip install coverage pytest
         #coverage erase
         #coverage run --branch --source=src/ 
         #coverage xml -i
-        pytest --junitxml=pytest-report.xml
+        pytest src/ --junitxml=pytest-report.xml
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
       with:
